@@ -23,6 +23,7 @@ This set was used by Ayesha for the final submission, but I found that the model
 
 Although the segmentation model showed high accuracy for each training set, the predicted masks are blurry. This can be due to the resizing of images to 128 x 128 pixels, which may have left out some rooftop details. Majority of the ground truth has black background with only small portion occupying the rooftops i.e whote portion. This may have enabled the model to pick up the black portion extensively and leave out crucial details from the rooftops. 
 
+
 2. Damage Detection of Buildings caused by the Blatten Glacier
 They have used a Laplacian filter for the initial processing of raw images. This is because the pre- and post-images may look the same on the raw bands, but damaged houses usually create sharp local changes in reflectance or texture. Applying a Laplacian filter emphasizes those sudden local differences, such as roof collapse edges, debris outlines, and cracks. This makes segmentation more sensitive to structural changes. The filter has a kernel size 3 on Band 1(Blue) and Band 3(Red). 
 Band 1 is sensitive to atmospheric scattering and the Laplacian on Blue enhances small structural changes. Band 3 is sensitive to vegetation and soil reflectance and the Laplacian on Red enhances contrast between damaged surfaces and surroundings.
@@ -37,7 +38,8 @@ The orange area represents the damaged houses, submerged by the lake and glacier
 The pink area represents the intersection between the Pre-event and Post-event houses only. The orange area is the difference of the Pre-event and the intersection.
 By visual inspection, the model classifies doesn’t leave out any houses, but there are a few false positives. It takes into consideration the flora around the houses.
 These workflows have been automated to work within a single model and give the desired output. 
- 
+
+ 
 3. Road Segmentation using Machine Learning
 I have tested the accuracy of the model created by Darian for all the cities. But the Deepness model kept crashing on my system. I converted the tile resolution, yet deepness showing the error. OverflowError: cannot convert float infinity to integer.
 The tile size used is 0.2m x 0.2m. 
@@ -48,26 +50,28 @@ The ortho tif image is used to produce a predicted mask. This predicted mask alo
 This is the imagery for Muenster, after clipping.
 IoU and F1 score that I have obtained is 0.5001 and 0.6539 in contrast with the 0.5862 and 0.7290 obtained by Darian, using the same model but I have obtained these values for Warendorf. Lower F1 score indicates that the model is either missing roads (false negatives) or predicting extra roads (false positives).
 IoU represents Intersection over Union, which means that there is 50% overlap of the predicted mask over the ground truth mask. F1 score combines the precision and recall and there is 65% similarity between the ground truth and predicted mask for Muenster.
-Muenster:
- <img width="531" height="338" alt="image" src="https://github.com/user-attachments/assets/62171d51-5602-49d9-a4f0-57caa2a31bb7" />
 
+Muenster:
+<img width="531" height="338" alt="image" src="https://github.com/user-attachments/assets/62171d51-5602-49d9-a4f0-57caa2a31bb7" />
 Considering the IoU and F1 score as provided by Darian for the Deepness model, the own model gives better results than the Deepness.
+
 Ahlen:
- <img width="591" height="404" alt="image" src="https://github.com/user-attachments/assets/3133a6b9-ac3b-4ef5-81ea-cbaa53e46a2b" />
+<img width="591" height="404" alt="image" src="https://github.com/user-attachments/assets/3133a6b9-ac3b-4ef5-81ea-cbaa53e46a2b" />
 
 Dorsten:
- <img width="649" height="380" alt="image" src="https://github.com/user-attachments/assets/0c0af3d8-71ea-4c00-be98-2e1621273d31" />
+<img width="649" height="380" alt="image" src="https://github.com/user-attachments/assets/0c0af3d8-71ea-4c00-be98-2e1621273d31" />
 
 Duelmen: 
- <img width="598" height="381" alt="image" src="https://github.com/user-attachments/assets/bfa769bf-eb94-4bae-8f43-0a9218aabb68" />
+<img width="598" height="381" alt="image" src="https://github.com/user-attachments/assets/bfa769bf-eb94-4bae-8f43-0a9218aabb68" />
 
 Hamm:
- <img width="557" height="359" alt="image" src="https://github.com/user-attachments/assets/b154bb39-1e74-472f-8f10-65b95f910e85" />
+<img width="557" height="359" alt="image" src="https://github.com/user-attachments/assets/b154bb39-1e74-472f-8f10-65b95f910e85" />
 
-Warendorf:
- <img width="816" height="434" alt="image" src="https://github.com/user-attachments/assets/d4e68114-5d05-49c7-b145-c690c1a01d3d" />
+Warendorf: 
+<img width="816" height="434" alt="image" src="https://github.com/user-attachments/assets/d4e68114-5d05-49c7-b145-c690c1a01d3d" />
 
- 
+
+ 
 4. Road Segmentation using Computer Vision
  <img width="940" height="324" alt="image" src="https://github.com/user-attachments/assets/2f948496-82ac-41b3-b5e9-605765c2bf1b" />
 
