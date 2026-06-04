@@ -1,4 +1,4 @@
-Reproduced Projects of Peers
+# Reproduced Projects of Peers
 
 1. Semantic Segmentation of Roofs from Aerial Imagery using Deep Learning
 Imagery used is from Kaggle and the work is done in Google Colab. I have tried to reproduce the results for segmentation using different batch_sizes and epochs for training the data.
